@@ -1,9 +1,9 @@
 export const projetos = [
     {
-        nome: "Portfolio",
-        descricao: "Meu portfólio pessoal feito com Next.js",
-        tech: "Next.js • Tailwind",
-        github: "#",
+        nome: "Top Conexões - Loja Virtual",
+        descricao: "E-commerce desenvolvido para venda de produtos e acessórios, com navegação rápida e design focado em conversão.",
+        tech: "HTML • CSS • JavaScript • E-commerce",
+        demo: "https://www.topconexoes.com",
     },
     {
         nome: "Site do Fabinho Frejat",
@@ -12,19 +12,18 @@ export const projetos = [
         demo: "https://fabinhofrejat.com",
     },
     {
-        nome: "App de Estudos",
-        descricao: "Aqui você pode conferir minha jornada acadêmica, notas e trabalhos organizados de forma prática",
-        tech: "React • Firebase",
-        github: "https://github.com/seuusuario/app-estudos",
-        demo: "https://app-estudos.vercel.app",
+        nome: "Portfólio Pessoal",
+        descricao: "Portfólio desenvolvido para apresentar meus projetos e contatos, com animações e interface com temática espacial.",
+        tech: "Next.js • React • Tailwind • Framer Motion",
+        github: "https://github.com/brunolealx/portfolio-bruno-leal",
+        demo: "https://lealcreativex.com",
     },
     {
         nome: "PDV Mercado (Java)",
-        descricao: "Gerenciador de ponto de venda (PDV) para mercado, feito em Java. Controle de produtos, vendas e relatórios.",
-        tech: "Java • Swing • MySQL",
-        github: "#",
-        demo: "#",
-        data: "2026-03-10",
+        descricao: "Sistema de ponto de venda (PDV) para mercado desenvolvido em Java. Permite controle de produtos, registro de vendas e geração de relatórios.",
+        tech: "Java • Swing • PostgreSQL",
+        github: "https://github.com/brunolealx/MERCADO-VS1",
+        demo: "https://github.com/brunolealx/MERCADO-VS1/archive/refs/heads/main.zip"
     },
     {
         nome: "Simulador de Investimentos",
