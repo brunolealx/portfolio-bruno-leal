@@ -26,12 +26,11 @@ export const projetos = [
         demo: "https://github.com/brunolealx/MERCADO-VS1/archive/refs/heads/main.zip"
     },
     {
-        nome: "Simulador de Investimentos",
-        descricao: "Simula diferentes cenários de investimentos e calcula retornos baseados em aportes mensais.",
-        tech: "Python • Tkinter • Matplotlib",
-        github: "#",
-        demo: "#",
-        data: "2026-03-12",
+        nome: "Simulador de Investimentos e API do Banco",
+        descricao: "Acessa a API do banco para calcular CDBs com base na taxa Selic e nos aportes mensais.",
+        tech: "Next.js • React • Tailwind CSS",
+        github: "https://github.com/brunolealx/simulador-investimento-cdb",
+        demo: "https://calculatoracdb.lealcreativex.com"
     },
     {
         nome: "Jogo de Memória Online",
