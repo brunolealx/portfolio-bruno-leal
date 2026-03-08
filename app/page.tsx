@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Orbitron, Inter } from "next/font/google";
 import ContatoTransition from "./components/ContatoTransition";
@@ -14,7 +14,25 @@ export default function Home() {
   const [showContact, setShowContact] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
 
+  // controla botão voltar do navegador
+  useEffect(() => {
+
+    const handlePopState = () => {
+      window.location.reload();
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+
+  }, []);
+
   const handleContatoClick = () => {
+
+    window.history.pushState({ page: "contato" }, "", "#contato");
+
     setShowTransition(true);
     setShowContact(false);
     setShowProjects(false);
@@ -26,6 +44,9 @@ export default function Home() {
   };
 
   const handleProjectsClick = () => {
+
+    window.history.pushState({ page: "projetos" }, "", "#projetos");
+
     setShowTransition(true);
     setShowContact(false);
     setShowProjects(false);
@@ -37,6 +58,8 @@ export default function Home() {
   };
 
   const handleVoltarClick = () => {
+    window.history.pushState({}, "", "/");
+
     setShowContact(false);
     setShowProjects(false);
     setShowTransition(false);
@@ -45,10 +68,8 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center bg-black text-white cursor-none relative overflow-hidden px-6 min-h-screen">
 
-      {/* Conteúdo inicial */}
       {!showTransition && !showContact && !showProjects && (
         <>
-          {/* Título */}
           <motion.h1
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -58,7 +79,6 @@ export default function Home() {
             BRUNO LEAL
           </motion.h1>
 
-          {/* Legenda do título */}
           <motion.p
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 0.85, y: 0 }}
@@ -68,7 +88,6 @@ export default function Home() {
             Desenvolvedor Full Stack & Estudante de Engenharia de Software
           </motion.p>
 
-          {/* Botões */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -92,10 +111,8 @@ export default function Home() {
         </>
       )}
 
-      {/* Efeito de interferência */}
       {showTransition && <ContatoTransition />}
 
-      {/* Seção de contato */}
       {showContact && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -103,16 +120,20 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="absolute inset-0 flex flex-col items-center justify-center space-y-6 md:space-y-8 z-50 bg-black/95 backdrop-blur-sm p-12 rounded-xl border border-blue-400 shadow-lg overflow-y-auto max-h-screen"
         >
-          <h2 className={`${orbitron.className} text-4xl md:text-5xl text-blue-400 mb-6 drop-shadow-md`}>Meus Contatos</h2>
+          <h2 className={`${orbitron.className} text-4xl md:text-5xl text-blue-400 mb-6 drop-shadow-md`}>
+            Meus Contatos
+          </h2>
 
           <div className={`flex flex-col items-center space-y-4 md:space-y-5 text-center ${inter.className} text-white/80`}>
-            <p className="text-lg md:text-xl hover:text-blue-400 transition-colors cursor-default"> +55 15 99277-3128</p>
-            <p className="text-lg md:text-xl hover:text-blue-400 transition-colors cursor-default"> lealbruno759@gmail.com</p>
-            <p className="text-lg md:text-xl hover:text-blue-400 transition-colors cursor-default"> linkedin.com/in/brunolealx</p>
-            <p className="text-lg md:text-xl hover:text-blue-400 transition-colors cursor-default"> @lealcreativex</p>
+            <p className="text-lg md:text-xl hover:text-blue-400 transition-colors cursor-default">+55 15 99277-3128</p>
+            <p className="text-lg md:text-xl hover:text-blue-400 transition-colors cursor-default">lealbruno759@gmail.com</p>
+            <p className="text-lg md:text-xl hover:text-blue-400 transition-colors cursor-default">linkedin.com/in/brunolealx</p>
+            <p className="text-lg md:text-xl hover:text-blue-400 transition-colors cursor-default">@lealcreativex</p>
           </div>
 
-          <p className="mt-8 text-sm md:text-base text-white/50 italic">Obrigado por visitar! 👾</p>
+          <p className="mt-8 text-sm md:text-base text-white/50 italic">
+            Obrigado por visitar! 👾
+          </p>
 
           <button
             onClick={handleVoltarClick}
@@ -123,7 +144,6 @@ export default function Home() {
         </motion.div>
       )}
 
-      {/* Seção de projetos */}
       {showProjects && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -131,7 +151,9 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="absolute inset-0 flex flex-col items-center space-y-12 z-50 bg-black/95 backdrop-blur-sm p-12 rounded-xl border border-blue-400 shadow-lg overflow-y-auto max-h-screen w-full"
         >
-          <h2 className={`${orbitron.className} text-4xl md:text-5xl text-blue-400 mb-6 drop-shadow-md`}>Projetos</h2>
+          <h2 className={`${orbitron.className} text-4xl md:text-5xl text-blue-400 mb-6 drop-shadow-md`}>
+            Projetos
+          </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl w-full">
             {projetos.map((projeto, index) => (
@@ -140,6 +162,7 @@ export default function Home() {
                 className="border border-white/10 rounded-xl p-6 flex flex-col hover:shadow-[0_0_20px_rgba(29,78,216,0.3)] hover:scale-105 transition-all duration-300"
               >
                 <h3 className="text-xl font-semibold mb-4">{projeto.nome}</h3>
+
                 <div className="flex flex-wrap gap-2 mb-4">
                   {projeto.tech.split("•").map((t, i) => (
                     <span key={i} className="text-xs bg-white/10 px-2 py-1 rounded-md">
@@ -147,7 +170,9 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
+
                 <p className="text-white/70 mb-6 flex-1">{projeto.descricao}</p>
+
                 <div className="flex gap-3 mt-auto">
                   {projeto.github && (
                     <a
@@ -159,6 +184,7 @@ export default function Home() {
                       GitHub
                     </a>
                   )}
+
                   {projeto.demo && (
                     <a
                       href={projeto.demo}
@@ -182,6 +208,7 @@ export default function Home() {
           </button>
         </motion.div>
       )}
+
     </main>
   );
 }
