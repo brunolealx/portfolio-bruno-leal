@@ -56,4 +56,12 @@ export const projetos = [
         demo: "#",
         data: "2026-03-17",
     },
+    {
+        nome: "Gerenciamento de Crachás e QR code",
+        descricao: "Projeto de automação em python , gerenciador para PDF no Google Drive com link fixo apontado em QRcode de crachás",
+        tech: "Python",
+        github: "#",
+        demo: "#",
+        data: "2026-03-17",
+    },
 ];
