@@ -58,10 +58,10 @@ export const projetos = [
     },
     {
         nome: "Gerenciamento de Crachás e QR code",
-        descricao: "Projeto de automação em python , gerenciador para PDF no Google Drive com link fixo apontado em QRcode de crachás",
+        descricao: "Projeto de automação em Python, gerenciador para PDF no Google Drive com link fixo apontado em QR Code de crachás",
         tech: "Python",
-        github: "#",
-        demo: "#",
-        data: "2026-03-17",
-    },
+        github: "https://github.com/brunolealx/gerenciador-crachas",
+        demo: "https://github.com/brunolealx/gerenciador-crachas/releases/download/versao-1.0/gerenciador.de.crachas.zip",
+        data: "2026-03-17"
+    }
 ];
