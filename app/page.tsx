@@ -379,7 +379,7 @@ export default function Home() {
                       </span>
                     </div>
 
-                    <h3 className="mb-3 rounded-md bg-blue-400 px-3 py-2 text-lg font-semibold text-black shadow-[0_0_18px_rgba(59,130,246,0.35)]">
+                    <h3 className="mb-2 text-lg font-semibold text-white">
                       {certificado.nome}
                     </h3>
                     <p className="text-sm leading-relaxed text-white/55">
