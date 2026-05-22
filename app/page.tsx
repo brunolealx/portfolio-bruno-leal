@@ -3,25 +3,39 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Orbitron, Inter } from "next/font/google";
-import ContatoTransition from "./components/ContatoTransition";
 import { projetos } from "./data/projects";
 
 const orbitron = Orbitron({ subsets: ["latin"], weight: ["700"] });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "600"] });
 
 export default function Home() {
-  const [showTransition, setShowTransition] = useState(false);
   const [showContact, setShowContact] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
   const [showCertificates, setShowCertificates] = useState(false);
 
-  // controla botão voltar do navegador
+  // controla botão voltar do navegador sem recarregar a página
   useEffect(() => {
 
     const handlePopState = () => {
-      window.location.reload();
+      setShowCertificates(false);
+
+      if (window.location.hash === "#contato") {
+        setShowContact(true);
+        setShowProjects(false);
+        return;
+      }
+
+      if (window.location.hash === "#projetos") {
+        setShowProjects(true);
+        setShowContact(false);
+        return;
+      }
+
+      setShowContact(false);
+      setShowProjects(false);
     };
 
+    handlePopState();
     window.addEventListener("popstate", handlePopState);
 
     return () => {
@@ -34,30 +48,18 @@ export default function Home() {
 
     window.history.pushState({ page: "contato" }, "", "#contato");
 
-    setShowTransition(true);
-    setShowContact(false);
+    setShowContact(true);
     setShowProjects(false);
     setShowCertificates(false);
-
-    setTimeout(() => {
-      setShowTransition(false);
-      setShowContact(true);
-    }, 2000);
   };
 
   const handleProjectsClick = () => {
 
     window.history.pushState({ page: "projetos" }, "", "#projetos");
 
-    setShowTransition(true);
+    setShowProjects(true);
     setShowContact(false);
-    setShowProjects(false);
     setShowCertificates(false);
-
-    setTimeout(() => {
-      setShowTransition(false);
-      setShowProjects(true);
-    }, 2000);
   };
 
   const handleVoltarClick = () => {
@@ -66,13 +68,12 @@ export default function Home() {
     setShowContact(false);
     setShowProjects(false);
     setShowCertificates(false);
-    setShowTransition(false);
   };
 
   return (
     <main className="flex flex-col items-center justify-center bg-black text-white cursor-none relative overflow-hidden px-6 min-h-screen">
 
-      {!showTransition && !showContact && !showProjects && !showCertificates && (
+      {!showContact && !showProjects && !showCertificates && (
         <>
           <motion.h1
             initial={{ opacity: 0, y: -50 }}
@@ -163,8 +164,6 @@ export default function Home() {
         </>
       )}
 
-      {showTransition && <ContatoTransition />}
-
       {showCertificates && (
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -229,66 +228,68 @@ export default function Home() {
 
       {showProjects && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="absolute inset-0 flex flex-col items-center space-y-12 z-50 bg-black/95 backdrop-blur-sm p-12 rounded-xl border border-blue-400 shadow-lg overflow-y-auto max-h-screen w-full"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4 }}
+          className="absolute inset-0 flex items-center justify-center z-50 bg-black/95 backdrop-blur-sm p-6"
         >
-          <h2 className={`${orbitron.className} text-4xl md:text-5xl text-blue-400 mb-6 drop-shadow-md`}>
-            Projetos
-          </h2>
+          <div className="w-full max-w-6xl max-h-[88vh] overflow-y-auto border border-blue-400 rounded-xl p-6 md:p-10 shadow-lg shadow-blue-500/20 bg-black">
+            <h2 className={`${orbitron.className} text-4xl md:text-5xl text-blue-400 mb-8 text-center drop-shadow-md`}>
+              Projetos
+            </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl w-full">
-            {projetos.map((projeto, index) => (
-              <div
-                key={index}
-                className="border border-white/10 rounded-xl p-6 flex flex-col hover:shadow-[0_0_20px_rgba(29,78,216,0.3)] hover:scale-105 transition-all duration-300"
-              >
-                <h3 className="text-xl font-semibold mb-4">{projeto.nome}</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+              {projetos.map((projeto, index) => (
+                <div
+                  key={index}
+                  className="border border-white/10 rounded-xl p-6 flex flex-col hover:shadow-[0_0_20px_rgba(29,78,216,0.3)] hover:scale-105 transition-all duration-300"
+                >
+                  <h3 className="text-xl font-semibold mb-4">{projeto.nome}</h3>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {projeto.tech.split("•").map((t, i) => (
-                    <span key={i} className="text-xs bg-white/10 px-2 py-1 rounded-md">
-                      {t.trim()}
-                    </span>
-                  ))}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {projeto.tech.split("•").map((t, i) => (
+                      <span key={i} className="text-xs bg-white/10 px-2 py-1 rounded-md">
+                        {t.trim()}
+                      </span>
+                    ))}
+                  </div>
+
+                  <p className="text-white/70 mb-6 flex-1">{projeto.descricao}</p>
+
+                  <div className="flex gap-3 mt-auto">
+                    {projeto.github && (
+                      <a
+                        href={projeto.github}
+                        className="text-sm text-blue-400 border border-blue-400 px-4 py-2 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 hover:shadow-[0_0_40px_#3b82f6]"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        GitHub
+                      </a>
+                    )}
+
+                    {projeto.demo && (
+                      <a
+                        href={projeto.demo}
+                        className="text-sm text-blue-400 border border-blue-400 px-4 py-2 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 hover:shadow-[0_0_40px_#3b82f6]"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Ver Projeto
+                      </a>
+                    )}
+                  </div>
                 </div>
+              ))}
+            </div>
 
-                <p className="text-white/70 mb-6 flex-1">{projeto.descricao}</p>
-
-                <div className="flex gap-3 mt-auto">
-                  {projeto.github && (
-                    <a
-                      href={projeto.github}
-                      className="text-sm text-blue-400 border border-blue-400 px-4 py-2 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 hover:shadow-[0_0_40px_#3b82f6]"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      GitHub
-                    </a>
-                  )}
-
-                  {projeto.demo && (
-                    <a
-                      href={projeto.demo}
-                      className="text-sm text-blue-400 border border-blue-400 px-4 py-2 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 hover:shadow-[0_0_40px_#3b82f6]"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Ver Projeto
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
+            <button
+              onClick={handleVoltarClick}
+              className="w-full mt-8 px-10 py-4 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_#3b82f6] font-semibold"
+            >
+              Fechar
+            </button>
           </div>
-
-          <button
-            onClick={handleVoltarClick}
-            className="px-10 py-4 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_#3b82f6] mt-6 font-semibold"
-          >
-            Voltar
-          </button>
         </motion.div>
       )}
 
