@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"], weight: ["400", "600"] });
 
 const certificados = [
   {
-    nome: "Certificado",
+    nome: "Acelere sua Carreira",
     descricao: "Primeiro certificado adicionado ao portfólio.",
     arquivo: "/certificados/certificado.pdf",
   },
