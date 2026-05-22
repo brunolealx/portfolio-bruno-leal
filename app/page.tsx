@@ -126,11 +126,11 @@ export default function Home() {
             <span className="absolute inset-[-6px] rounded-full border border-blue-400/25 group-hover:border-blue-300/70" />
             <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-blue-400/30 group-hover:bg-black/30" />
             <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-blue-400/30 group-hover:bg-black/30" />
-            <span className="relative z-10 mx-auto flex h-11 w-10 items-center justify-center">
-              <span className="absolute top-1 h-5 w-3 -translate-x-2 rotate-[-18deg] rounded-sm border border-current bg-black/80 group-hover:bg-blue-400" />
-              <span className="absolute top-1 h-5 w-3 translate-x-2 rotate-[18deg] rounded-sm border border-current bg-black/80 group-hover:bg-blue-400" />
-              <span className="absolute bottom-1 h-8 w-8 rounded-full border-2 border-current bg-black/80 shadow-[0_0_18px_rgba(59,130,246,0.65)] group-hover:bg-blue-400" />
-              <span className="absolute bottom-[14px] h-3 w-3 rotate-45 border-l-2 border-t-2 border-current" />
+            <span className="relative z-10 mx-auto flex h-10 w-11 items-center justify-center">
+              <span className="absolute top-2 h-5 w-10 rotate-45 border-2 border-current bg-black/80 group-hover:bg-blue-400" />
+              <span className="absolute top-[18px] h-2 w-7 rounded-b-full border-x-2 border-b-2 border-current bg-black/80 group-hover:bg-blue-400" />
+              <span className="absolute right-2 top-[17px] h-5 w-px bg-current" />
+              <span className="absolute right-[5px] top-[35px] h-2 w-2 rounded-full bg-current" />
             </span>
           </motion.button>
         </>
