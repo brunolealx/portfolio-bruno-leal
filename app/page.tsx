@@ -9,11 +9,20 @@ import { projetos } from "./data/projects";
 const orbitron = Orbitron({ subsets: ["latin"], weight: ["700"] });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "600"] });
 
+const certificados = [
+  {
+    nome: "Certificado",
+    descricao: "Primeiro certificado adicionado ao portfólio.",
+    arquivo: "/certificados/certificado.pdf",
+  },
+];
+
 export default function Home() {
   const [showContact, setShowContact] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
   const [showCertificates, setShowCertificates] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  const [activeCertificate, setActiveCertificate] = useState(certificados[0]);
 
   // controla botão voltar do navegador sem recarregar a página
   useEffect(() => {
@@ -300,23 +309,62 @@ export default function Home() {
           transition={{ duration: 0.4 }}
           className="absolute inset-0 flex items-center justify-center z-50 bg-black/95 backdrop-blur-sm p-6"
         >
-          <div className="w-full max-w-2xl border border-blue-400 rounded-xl p-8 shadow-lg shadow-blue-500/20 bg-black">
+          <div className="w-full max-w-6xl max-h-[88vh] overflow-y-auto border border-blue-400 rounded-xl p-6 md:p-8 shadow-lg shadow-blue-500/20 bg-black">
             <h2 className={`${orbitron.className} text-3xl md:text-4xl text-blue-400 mb-6 text-center drop-shadow-md`}>
               Certificados
             </h2>
 
-            <div className={`${inter.className} border border-white/10 rounded-xl p-6 text-center`}>
-              <p className="text-lg md:text-xl text-white/80 mb-3">
-                Meus certificados estão sendo organizados.
-              </p>
-              <p className="text-sm md:text-base text-white/50">
-                Em breve esta sessão terá os certificados com links, imagens ou PDFs.
-              </p>
+            <div className={`${inter.className} grid gap-6 lg:grid-cols-[300px_1fr]`}>
+              <div className="space-y-4">
+                {certificados.map((certificado, index) => (
+                  <button
+                    key={certificado.arquivo}
+                    onClick={() => setActiveCertificate(certificado)}
+                    className={`w-full rounded-xl border p-5 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_26px_rgba(59,130,246,0.35)] ${activeCertificate.arquivo === certificado.arquivo
+                      ? "border-blue-400 bg-blue-400/10 text-white"
+                      : "border-white/10 bg-white/5 text-white/75 hover:border-blue-400/60"
+                      }`}
+                  >
+                    <div className="mb-4 flex items-center justify-between gap-3">
+                      <span className="rounded-full border border-blue-400/40 px-3 py-1 text-xs uppercase tracking-[0.2em] text-blue-300">
+                        #{index + 1}
+                      </span>
+                      <span className="rounded-md bg-blue-400/10 px-2 py-1 text-xs text-blue-300">
+                        PDF
+                      </span>
+                    </div>
+
+                    <h3 className="mb-2 text-lg font-semibold text-white">
+                      {certificado.nome}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-white/55">
+                      {certificado.descricao}
+                    </p>
+                  </button>
+                ))}
+              </div>
+
+              <div className="min-h-[360px] overflow-hidden rounded-xl border border-white/10 bg-white/5">
+                <iframe
+                  src={`${activeCertificate.arquivo}#toolbar=1&navpanes=0`}
+                  title={activeCertificate.nome}
+                  className="h-[60vh] min-h-[360px] w-full bg-white"
+                />
+              </div>
             </div>
+
+            <a
+              href={activeCertificate.arquivo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 block w-full px-10 py-4 text-center border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_#3b82f6] font-semibold"
+            >
+              Abrir PDF em nova aba
+            </a>
 
             <button
               onClick={() => setShowCertificates(false)}
-              className="w-full mt-8 px-10 py-4 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_#3b82f6] font-semibold"
+              className="w-full mt-4 px-10 py-4 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_#3b82f6] font-semibold"
             >
               Fechar
             </button>
