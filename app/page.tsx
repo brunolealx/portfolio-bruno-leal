@@ -17,19 +17,19 @@ const certificados = [
     preview: "/certificados/previews/certificado.png",
   },
   {
-    nome: "TECNOLOGIA, DIREITO DIGITAL E PROPRIEDADE INTELECTUAL",
+    nome: "Tecnologia, Direito Digital e Propriedade Intelectual",
     descricao: "Curso sobre fundamentos de direito digital, propriedade intelectual, proteção de conteúdo e uso responsável da tecnologia.",
     arquivo: "/certificados/direito-digital.pdf",
     preview: "/certificados/previews/direito-digital.png",
   },
   {
-    nome: "EDUCAÇÃO ONLINE",
+    nome: "Educação Online",
     descricao: "Curso sobre práticas, ferramentas e estratégias para aprendizagem em ambientes digitais e ensino mediado por tecnologia.",
     arquivo: "/certificados/educacao-online.pdf",
     preview: "/certificados/previews/educacao-online.png",
   },
   {
-    nome: "INGLÊS: INCREMENTANDO O VOCABULÁRIO",
+    nome: "Inglês: Incrementando o Vocabulário",
     descricao: "Curso focado na ampliação de vocabulário em inglês, fortalecendo repertório de termos, expressões e comunicação.",
     arquivo: "/certificados/ingles-incrementando-vocabulario.pdf",
     preview: "/certificados/previews/ingles-incrementando-vocabulario.png",
@@ -47,7 +47,7 @@ const certificados = [
     preview: "/certificados/previews/analise-de-dados-com-python.png",
   },
   {
-    nome: "TECNOLOGIAS DA GEOGRAFIA FÍSICA",
+    nome: "Tecnologias da Geografia Física",
     descricao: "Curso sobre tecnologias aplicadas à geografia física, análise territorial e compreensão de fenômenos naturais.",
     arquivo: "/certificados/tecnologias-da-geografia-fisica.pdf",
     preview: "/certificados/previews/tecnologias-da-geografia-fisica.png",
