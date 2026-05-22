@@ -245,13 +245,13 @@ export default function Home() {
 
               <div className={`${inter.className} space-y-5 text-white/75 text-base md:text-lg leading-relaxed`}>
                 <p>
-                  Sou desenvolvedor Full Stack e estudante de Engenharia de Software. Gosto de criar interfaces com identidade, sistemas úteis e soluções que resolvem problemas reais.
+                  Sou Bruno Leal, desenvolvedor Full Stack e estudante de Engenharia de Software. Gosto de transformar ideias em soluções digitais bem construídas, com visual marcante e uso simples.
                 </p>
                 <p>
-                  Tenho trabalhado com projetos web, e-commerce, automações e aplicações em evolução, usando tecnologias como Next.js, React, Java, Python e bancos de dados.
+                  Trabalho com sites, lojas virtuais, automações e sistemas sob medida. No meu dia a dia estudo e aplico tecnologias como Next.js, React, Java, Python e bancos de dados, sempre buscando evoluir na parte técnica e na experiência de quem usa.
                 </p>
                 <p>
-                  Meu foco é unir criatividade, código limpo e experiência de uso para transformar ideias em produtos digitais que funcionem bem e tenham personalidade.
+                  Meu foco é entregar projetos que unam organização, desempenho e identidade. Acredito que um bom sistema precisa funcionar bem, ser fácil de entender e passar confiança desde o primeiro contato.
                 </p>
               </div>
 
