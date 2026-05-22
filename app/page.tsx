@@ -126,12 +126,39 @@ export default function Home() {
             <span className="absolute inset-[-6px] rounded-full border border-blue-400/25 group-hover:border-blue-300/70" />
             <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-blue-400/30 group-hover:bg-black/30" />
             <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-blue-400/30 group-hover:bg-black/30" />
-            <span className="relative z-10 mx-auto flex h-10 w-11 items-center justify-center">
-              <span className="absolute top-2 h-5 w-10 rotate-45 border-2 border-current bg-black/80 group-hover:bg-blue-400" />
-              <span className="absolute top-[18px] h-2 w-7 rounded-b-full border-x-2 border-b-2 border-current bg-black/80 group-hover:bg-blue-400" />
-              <span className="absolute right-2 top-[17px] h-5 w-px bg-current" />
-              <span className="absolute right-[5px] top-[35px] h-2 w-2 rounded-full bg-current" />
-            </span>
+            <svg
+              className="relative z-10 mx-auto h-12 w-12"
+              viewBox="0 0 64 64"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M8 25L32 13L56 25L32 37L8 25Z"
+                fill="currentColor"
+                fillOpacity="0.22"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M20 32V41C20 46 44 46 44 41V32"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M49 28V43"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+              <path
+                d="M49 43C46.5 46 46.5 50 46.5 52H51.5C51.5 50 51.5 46 49 43Z"
+                fill="currentColor"
+              />
+              <circle cx="32" cy="25" r="2.5" fill="currentColor" />
+            </svg>
           </motion.button>
         </>
       )}
