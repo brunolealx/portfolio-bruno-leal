@@ -195,13 +195,13 @@ export default function Home() {
             title="Sobre mim"
           >
             <span className="absolute inset-[-6px] rounded-full border border-blue-400/25 group-hover:border-blue-300/70" />
-            <span className="relative z-10 mx-auto block h-16 w-16 overflow-hidden rounded-full border border-blue-300/70 shadow-[0_0_18px_rgba(59,130,246,0.75)]">
+            <span className="relative z-10 mx-auto block h-16 w-16 overflow-hidden rounded-full border border-blue-300/70 shadow-[0_0_18px_rgba(59,130,246,0.75)] transition-transform duration-300 group-hover:scale-110">
               <Image
                 src="/bruno-profile.jpeg"
                 alt="Foto de Bruno Leal"
                 fill
                 sizes="64px"
-                className="object-cover transition-transform duration-300 group-hover:scale-110"
+                className="object-cover transition-transform duration-300 group-hover:scale-125"
                 priority
               />
             </span>
