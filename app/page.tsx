@@ -138,6 +138,33 @@ export default function Home() {
 
           </motion.div>
 
+          <motion.a
+            href="https://github.com/brunolealx?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, x: -18 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.9 }}
+            className="fixed left-8 bottom-28 md:left-11 md:bottom-32 z-40 flex h-14 w-14 items-center justify-center rounded-full border border-blue-400 bg-black/80 text-blue-300 shadow-[0_0_22px_rgba(59,130,246,0.55)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-blue-400 hover:text-black hover:shadow-[0_0_42px_#3b82f6] group"
+            aria-label="Abrir meus repositórios no GitHub"
+            title="GitHub"
+          >
+            <span className="absolute inset-[-5px] rounded-full border border-blue-400/25 transition-all duration-300 group-hover:border-blue-300/80 group-hover:shadow-[0_0_24px_rgba(59,130,246,0.85)]" />
+            <span className="absolute inset-0 rounded-full bg-blue-400/20 opacity-0 group-hover:animate-ping group-hover:opacity-70" />
+            <svg
+              className="relative z-10 h-8 w-8 transition-transform duration-300 group-hover:rotate-12"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M12 2C6.48 2 2 6.58 2 12.22c0 4.51 2.87 8.34 6.84 9.69.5.09.68-.22.68-.49v-1.9c-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.55-1.13-4.55-5.04 0-1.11.39-2.03 1.03-2.74-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.04A9.3 9.3 0 0 1 12 6.95c.85 0 1.7.12 2.5.34 1.9-1.32 2.74-1.04 2.74-1.04.55 1.4.2 2.44.1 2.7.64.71 1.03 1.63 1.03 2.74 0 3.92-2.34 4.78-4.57 5.03.36.32.68.94.68 1.9v2.8c0 .27.18.59.69.49A10.22 10.22 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"
+              />
+            </svg>
+          </motion.a>
+
           <motion.button
             onClick={() => setShowCertificates(true)}
             initial={{ opacity: 0, x: -24 }}
