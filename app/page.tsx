@@ -14,41 +14,49 @@ const certificados = [
     nome: "Acelere sua Carreira",
     descricao: "Curso voltado ao desenvolvimento profissional, organização de carreira e preparação para novas oportunidades no mercado.",
     arquivo: "/certificados/certificado.pdf",
+    preview: "/certificados/previews/certificado.png",
   },
   {
     nome: "TECNOLOGIA, DIREITO DIGITAL E PROPRIEDADE INTELECTUAL",
     descricao: "Curso sobre fundamentos de direito digital, propriedade intelectual, proteção de conteúdo e uso responsável da tecnologia.",
     arquivo: "/certificados/direito-digital.pdf",
+    preview: "/certificados/previews/direito-digital.png",
   },
   {
     nome: "EDUCAÇÃO ONLINE",
     descricao: "Curso sobre práticas, ferramentas e estratégias para aprendizagem em ambientes digitais e ensino mediado por tecnologia.",
     arquivo: "/certificados/educacao-online.pdf",
+    preview: "/certificados/previews/educacao-online.png",
   },
   {
     nome: "INGLÊS: INCREMENTANDO O VOCABULÁRIO",
     descricao: "Curso focado na ampliação de vocabulário em inglês, fortalecendo repertório de termos, expressões e comunicação.",
     arquivo: "/certificados/ingles-incrementando-vocabulario.pdf",
+    preview: "/certificados/previews/ingles-incrementando-vocabulario.png",
   },
   {
     nome: "IOT e Programação de Sensores",
     descricao: "Curso sobre Internet das Coisas e programação de sensores, com foco em lógica, coleta de dados e dispositivos conectados.",
     arquivo: "/certificados/programacao-de-sensores.pdf",
+    preview: "/certificados/previews/programacao-de-sensores.png",
   },
   {
     nome: "Análise de Dados com Python",
     descricao: "Curso de análise de dados com Python, abordando manipulação, interpretação e uso de dados para apoiar decisões.",
     arquivo: "/certificados/analise-de-dados-com-python.pdf",
+    preview: "/certificados/previews/analise-de-dados-com-python.png",
   },
   {
     nome: "TECNOLOGIAS DA GEOGRAFIA FÍSICA",
     descricao: "Curso sobre tecnologias aplicadas à geografia física, análise territorial e compreensão de fenômenos naturais.",
     arquivo: "/certificados/tecnologias-da-geografia-fisica.pdf",
+    preview: "/certificados/previews/tecnologias-da-geografia-fisica.png",
   },
   {
     nome: "Vírus Emergentes: Da Detecção ao Controle",
     descricao: "Curso sobre vírus emergentes, processos de detecção, prevenção e estratégias de controle em saúde e tecnologia.",
     arquivo: "/certificados/virus-emergentes.pdf",
+    preview: "/certificados/previews/virus-emergentes.png",
   },
 ];
 
@@ -344,17 +352,19 @@ export default function Home() {
           transition={{ duration: 0.4 }}
           className="absolute inset-0 flex items-center justify-center z-50 bg-black/95 backdrop-blur-sm p-6"
         >
-          <div className="w-full max-w-6xl max-h-[88vh] overflow-y-auto border border-blue-400 rounded-xl p-6 md:p-8 shadow-lg shadow-blue-500/20 bg-black">
+          <div className="flex h-[88vh] w-full max-w-7xl flex-col overflow-hidden border border-blue-400 rounded-xl p-6 md:p-8 shadow-lg shadow-blue-500/20 bg-black">
             <h2 className={`${orbitron.className} text-3xl md:text-4xl text-blue-400 mb-6 text-center drop-shadow-md`}>
               Certificados
             </h2>
 
-            <div className={`${inter.className} grid gap-6 lg:grid-cols-[300px_1fr]`}>
-              <div className="space-y-4">
+            <div className={`${inter.className} grid min-h-0 flex-1 gap-6 lg:grid-cols-[330px_1fr]`}>
+              <div className="min-h-0 space-y-4 overflow-y-auto pr-1">
                 {certificados.map((certificado, index) => (
                   <button
                     key={certificado.arquivo}
                     onClick={() => setActiveCertificate(certificado)}
+                    onFocus={() => setActiveCertificate(certificado)}
+                    onMouseEnter={() => setActiveCertificate(certificado)}
                     className={`w-full rounded-xl border p-5 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_26px_rgba(59,130,246,0.35)] ${activeCertificate.arquivo === certificado.arquivo
                       ? "border-blue-400 bg-blue-400/10 text-white"
                       : "border-white/10 bg-white/5 text-white/75 hover:border-blue-400/60"
@@ -379,23 +389,37 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="min-h-[360px] overflow-hidden rounded-xl border border-white/10 bg-white/5">
-                <iframe
-                  src={`${activeCertificate.arquivo}#toolbar=1&navpanes=0`}
-                  title={activeCertificate.nome}
-                  className="h-[60vh] min-h-[360px] w-full bg-white"
-                />
+              <div className="flex min-h-0 flex-col gap-4">
+                <div className="rounded-xl border border-blue-400/25 bg-blue-400/10 p-4">
+                  <p className="text-xs uppercase tracking-[0.25em] text-blue-300">
+                    Visualizando
+                  </p>
+                  <h3 className="mt-2 text-lg font-semibold text-white">
+                    {activeCertificate.nome}
+                  </h3>
+                </div>
+
+                <div className="relative min-h-[340px] flex-1 overflow-hidden rounded-xl border border-white/10 bg-white/5">
+                  <Image
+                    src={activeCertificate.preview}
+                    alt={`Certificado do curso ${activeCertificate.nome}`}
+                    fill
+                    sizes="(min-width: 1024px) 760px, 100vw"
+                    className="object-contain p-3"
+                    unoptimized
+                  />
+                </div>
+
+                <a
+                  href={activeCertificate.arquivo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full px-10 py-4 text-center border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_#3b82f6] font-semibold"
+                >
+                  Abrir PDF em nova aba
+                </a>
               </div>
             </div>
-
-            <a
-              href={activeCertificate.arquivo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 block w-full px-10 py-4 text-center border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_#3b82f6] font-semibold"
-            >
-              Abrir PDF em nova aba
-            </a>
 
             <button
               onClick={() => setShowCertificates(false)}
