@@ -13,6 +13,7 @@ export default function Home() {
   const [showTransition, setShowTransition] = useState(false);
   const [showContact, setShowContact] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
+  const [showCertificates, setShowCertificates] = useState(false);
 
   // controla botão voltar do navegador
   useEffect(() => {
@@ -36,6 +37,7 @@ export default function Home() {
     setShowTransition(true);
     setShowContact(false);
     setShowProjects(false);
+    setShowCertificates(false);
 
     setTimeout(() => {
       setShowTransition(false);
@@ -50,6 +52,7 @@ export default function Home() {
     setShowTransition(true);
     setShowContact(false);
     setShowProjects(false);
+    setShowCertificates(false);
 
     setTimeout(() => {
       setShowTransition(false);
@@ -62,13 +65,14 @@ export default function Home() {
 
     setShowContact(false);
     setShowProjects(false);
+    setShowCertificates(false);
     setShowTransition(false);
   };
 
   return (
     <main className="flex flex-col items-center justify-center bg-black text-white cursor-none relative overflow-hidden px-6 min-h-screen">
 
-      {!showTransition && !showContact && !showProjects && (
+      {!showTransition && !showContact && !showProjects && !showCertificates && (
         <>
           <motion.h1
             initial={{ opacity: 0, y: -50 }}
@@ -107,11 +111,49 @@ export default function Home() {
             >
               Contato
             </button>
+
+            <button
+              onClick={() => setShowCertificates(true)}
+              className="px-10 py-4 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_#3b82f6] font-semibold"
+            >
+              Certificados
+            </button>
           </motion.div>
         </>
       )}
 
       {showTransition && <ContatoTransition />}
+
+      {showCertificates && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4 }}
+          className="absolute inset-0 flex items-center justify-center z-50 bg-black/95 backdrop-blur-sm p-6"
+        >
+          <div className="w-full max-w-2xl border border-blue-400 rounded-xl p-8 shadow-lg shadow-blue-500/20 bg-black">
+            <h2 className={`${orbitron.className} text-3xl md:text-4xl text-blue-400 mb-6 text-center drop-shadow-md`}>
+              Certificados
+            </h2>
+
+            <div className={`${inter.className} border border-white/10 rounded-xl p-6 text-center`}>
+              <p className="text-lg md:text-xl text-white/80 mb-3">
+                Meus certificados estão sendo organizados.
+              </p>
+              <p className="text-sm md:text-base text-white/50">
+                Em breve esta sessão terá os certificados com links, imagens ou PDFs.
+              </p>
+            </div>
+
+            <button
+              onClick={() => setShowCertificates(false)}
+              className="w-full mt-8 px-10 py-4 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_#3b82f6] font-semibold"
+            >
+              Fechar
+            </button>
+          </div>
+        </motion.div>
+      )}
 
       {showContact && (
         <motion.div
