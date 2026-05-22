@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Orbitron, Inter } from "next/font/google";
 import { projetos } from "./data/projects";
@@ -194,41 +195,16 @@ export default function Home() {
             title="Sobre mim"
           >
             <span className="absolute inset-[-6px] rounded-full border border-blue-400/25 group-hover:border-blue-300/70" />
-            <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-blue-400/30 group-hover:bg-black/30" />
-            <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-blue-400/30 group-hover:bg-black/30" />
-            <svg
-              className="relative z-10 mx-auto h-11 w-11"
-              viewBox="0 0 64 64"
-              fill="none"
-              aria-hidden="true"
-            >
-              <rect
-                x="11"
-                y="14"
-                width="42"
-                height="36"
-                rx="5"
-                fill="currentColor"
-                fillOpacity="0.18"
-                stroke="currentColor"
-                strokeWidth="3"
+            <span className="relative z-10 mx-auto block h-16 w-16 overflow-hidden rounded-full border border-blue-300/70 shadow-[0_0_18px_rgba(59,130,246,0.75)]">
+              <Image
+                src="/bruno-profile.jpeg"
+                alt="Foto de Bruno Leal"
+                fill
+                sizes="64px"
+                className="object-cover transition-transform duration-300 group-hover:scale-110"
+                priority
               />
-              <path
-                d="M11 24H53"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-              <circle cx="22" cy="19" r="2" fill="currentColor" />
-              <circle cx="29" cy="19" r="2" fill="currentColor" />
-              <circle cx="32" cy="34" r="5" stroke="currentColor" strokeWidth="3" />
-              <path
-                d="M22 45C24 39 40 39 42 45"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-            </svg>
+            </span>
           </motion.button>
         </>
       )}
