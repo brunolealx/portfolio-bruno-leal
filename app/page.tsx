@@ -387,6 +387,13 @@ export default function Home() {
                     </p>
                   </button>
                 ))}
+
+                <button
+                  onClick={() => setShowCertificates(false)}
+                  className="w-full px-8 py-3 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_#3b82f6] font-semibold"
+                >
+                  Fechar
+                </button>
               </div>
 
               <div className="flex min-h-0 flex-col gap-4">
@@ -420,13 +427,6 @@ export default function Home() {
                 </a>
               </div>
             </div>
-
-            <button
-              onClick={() => setShowCertificates(false)}
-              className="w-full mt-4 px-10 py-4 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_#3b82f6] font-semibold"
-            >
-              Fechar
-            </button>
           </div>
         </motion.div>
       )}
