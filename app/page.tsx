@@ -231,6 +231,18 @@ export default function Home() {
                 Bruno Leal
               </h2>
 
+              <div className="mx-auto mb-8 h-52 w-52 overflow-hidden rounded-full border-2 border-blue-400 shadow-[0_0_35px_rgba(59,130,246,0.65)] md:h-64 md:w-64">
+                <Image
+                  src="/bruno-profile.jpeg"
+                  alt="Foto de Bruno Leal"
+                  width={256}
+                  height={256}
+                  sizes="(min-width: 768px) 256px, 208px"
+                  className="h-full w-full object-cover"
+                  unoptimized
+                />
+              </div>
+
               <div className={`${inter.className} space-y-5 text-white/75 text-base md:text-lg leading-relaxed`}>
                 <p>
                   Sou desenvolvedor Full Stack e estudante de Engenharia de Software. Gosto de criar interfaces com identidade, sistemas úteis e soluções que resolvem problemas reais.
