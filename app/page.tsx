@@ -216,7 +216,7 @@ export default function Home() {
           transition={{ duration: 0.4 }}
           className="absolute inset-0 flex items-center justify-center z-50 bg-black/95 backdrop-blur-sm p-6"
         >
-          <div className="w-full max-w-3xl border border-blue-400 rounded-xl shadow-lg shadow-blue-500/20 bg-black overflow-hidden">
+          <div className="w-full max-w-3xl max-h-[88vh] border border-blue-400 rounded-xl shadow-lg shadow-blue-500/20 bg-black overflow-hidden">
             <div className="flex items-center gap-2 border-b border-blue-400/30 px-5 py-4">
               <span className="h-3 w-3 rounded-full bg-blue-400/80" />
               <span className="h-3 w-3 rounded-full bg-blue-400/45" />
@@ -226,7 +226,7 @@ export default function Home() {
               </span>
             </div>
 
-            <div className="p-8 md:p-10">
+            <div className="max-h-[calc(88vh-57px)] overflow-y-auto p-8 md:p-10">
               <h2 className={`${orbitron.className} text-3xl md:text-4xl text-blue-400 mb-6 text-center drop-shadow-md`}>
                 Bruno Leal
               </h2>
