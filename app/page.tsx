@@ -126,8 +126,11 @@ export default function Home() {
             <span className="absolute inset-[-6px] rounded-full border border-blue-400/25 group-hover:border-blue-300/70" />
             <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-blue-400/30 group-hover:bg-black/30" />
             <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-blue-400/30 group-hover:bg-black/30" />
-            <span className={`${orbitron.className} relative z-10 block text-xs tracking-[0.18em]`}>
-              CERT
+            <span className="relative z-10 mx-auto flex h-9 w-10 items-center justify-center">
+              <span className="absolute h-7 w-9 rounded-sm border-2 border-current bg-black/70 group-hover:bg-blue-400" />
+              <span className="absolute top-3 h-px w-5 bg-current" />
+              <span className="absolute top-5 h-px w-4 bg-current" />
+              <span className="absolute -bottom-1 h-4 w-4 rotate-45 border-b-2 border-r-2 border-current bg-black group-hover:bg-blue-400" />
             </span>
           </motion.button>
         </>
