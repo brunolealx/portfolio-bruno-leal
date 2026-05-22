@@ -401,7 +401,7 @@ export default function Home() {
                   <p className="text-xs uppercase tracking-[0.25em] text-blue-300">
                     Visualizando
                   </p>
-                  <h3 className="mt-2 text-lg font-semibold text-white">
+                  <h3 className="mt-2 rounded-md bg-blue-400 px-3 py-2 text-lg font-semibold text-black shadow-[0_0_18px_rgba(59,130,246,0.35)]">
                     {activeCertificate.nome}
                   </h3>
                 </div>
