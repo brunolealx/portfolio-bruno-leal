@@ -112,13 +112,24 @@ export default function Home() {
               Contato
             </button>
 
-            <button
-              onClick={() => setShowCertificates(true)}
-              className="px-10 py-4 border border-blue-400 text-blue-400 rounded-md hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_#3b82f6] font-semibold"
-            >
-              Certificados
-            </button>
           </motion.div>
+
+          <motion.button
+            onClick={() => setShowCertificates(true)}
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8 }}
+            className="fixed left-5 bottom-5 md:left-8 md:bottom-8 z-40 h-20 w-20 rounded-full border border-blue-400 bg-black/80 text-blue-300 shadow-[0_0_28px_rgba(59,130,246,0.65)] backdrop-blur-sm hover:bg-blue-400 hover:text-black hover:shadow-[0_0_50px_#3b82f6] transition-all duration-300 font-semibold group"
+            aria-label="Abrir certificados"
+            title="Certificados"
+          >
+            <span className="absolute inset-[-6px] rounded-full border border-blue-400/25 group-hover:border-blue-300/70" />
+            <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-blue-400/30 group-hover:bg-black/30" />
+            <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-blue-400/30 group-hover:bg-black/30" />
+            <span className={`${orbitron.className} relative z-10 block text-xs tracking-[0.18em]`}>
+              CERT
+            </span>
+          </motion.button>
         </>
       )}
 
