@@ -12,8 +12,43 @@ const inter = Inter({ subsets: ["latin"], weight: ["400", "600"] });
 const certificados = [
   {
     nome: "Acelere sua Carreira",
-    descricao: "Primeiro certificado adicionado ao portfólio.",
+    descricao: "Curso voltado ao desenvolvimento profissional, organização de carreira e preparação para novas oportunidades no mercado.",
     arquivo: "/certificados/certificado.pdf",
+  },
+  {
+    nome: "TECNOLOGIA, DIREITO DIGITAL E PROPRIEDADE INTELECTUAL",
+    descricao: "Curso sobre fundamentos de direito digital, propriedade intelectual, proteção de conteúdo e uso responsável da tecnologia.",
+    arquivo: "/certificados/direito-digital.pdf",
+  },
+  {
+    nome: "EDUCAÇÃO ONLINE",
+    descricao: "Curso sobre práticas, ferramentas e estratégias para aprendizagem em ambientes digitais e ensino mediado por tecnologia.",
+    arquivo: "/certificados/educacao-online.pdf",
+  },
+  {
+    nome: "INGLÊS: INCREMENTANDO O VOCABULÁRIO",
+    descricao: "Curso focado na ampliação de vocabulário em inglês, fortalecendo repertório de termos, expressões e comunicação.",
+    arquivo: "/certificados/ingles-incrementando-vocabulario.pdf",
+  },
+  {
+    nome: "IOT e Programação de Sensores",
+    descricao: "Curso sobre Internet das Coisas e programação de sensores, com foco em lógica, coleta de dados e dispositivos conectados.",
+    arquivo: "/certificados/programacao-de-sensores.pdf",
+  },
+  {
+    nome: "Análise de Dados com Python",
+    descricao: "Curso de análise de dados com Python, abordando manipulação, interpretação e uso de dados para apoiar decisões.",
+    arquivo: "/certificados/analise-de-dados-com-python.pdf",
+  },
+  {
+    nome: "TECNOLOGIAS DA GEOGRAFIA FÍSICA",
+    descricao: "Curso sobre tecnologias aplicadas à geografia física, análise territorial e compreensão de fenômenos naturais.",
+    arquivo: "/certificados/tecnologias-da-geografia-fisica.pdf",
+  },
+  {
+    nome: "Vírus Emergentes: Da Detecção ao Controle",
+    descricao: "Curso sobre vírus emergentes, processos de detecção, prevenção e estratégias de controle em saúde e tecnologia.",
+    arquivo: "/certificados/virus-emergentes.pdf",
   },
 ];
 
