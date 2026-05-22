@@ -13,7 +13,6 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  min-height: 100vh;
 }
 
 /* Remove qualquer grid ou animação antiga */
@@ -25,19 +24,4 @@ html,
 body,
 * {
   cursor: none !important;
-}
-
-a,
-button {
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, color 180ms ease, background-color 180ms ease;
-}
-
-button:hover,
-a:hover {
-  transform: translateY(-1px);
-}
-
-::selection {
-  background: rgba(96, 165, 250, 0.35);
-  color: white;
 }
