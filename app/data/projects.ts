@@ -63,5 +63,12 @@ export const projetos = [
         github: "https://github.com/brunolealx/gerenciador-crachas",
         demo: "https://github.com/brunolealx/gerenciador-crachas/releases/download/versao-1.0/gerenciador.de.crachas.zip",
         data: "2026-03-17"
+    },
+    {
+        nome: "Repositório Outframe",
+        descricao: "Engine clean-room para Windows focada em upscaling e apresentação de jogos, com captura de janelas, renderização em tela sem bordas e presets de baixa latência.",
+        tech: "C++ • CMake • Win32 • Windows API",
+        github: "https://github.com/brunolealx/Outframe",
+        data: "2026-05-29"
     }
 ];
